@@ -1,9 +1,9 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host= 'localhost',
-    user= 'mufatech',
-    passwd = 'mufatech',
+    host= 'roundhouse.proxy.rlwy.net',
+    user= 'root',
+    passwd = 'EJvtXaxwBTgaIebyntYdTCxhKaTXaVnb',
 )
 
 my_cursor = mydb.cursor()
