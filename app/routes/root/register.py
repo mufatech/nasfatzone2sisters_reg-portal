@@ -23,6 +23,7 @@ def register():
         registration_pin = request.form.get('registration_pin')
         expectations = request.form.get('expectations')
         massage = request.form.get('massage')
+        teeth = request.form.get('teeth')
 
         # Check if the registration_pin exists and is unused
         pin = Pin.query.filter_by(value=registration_pin, date_used=None, category=category).first()
@@ -44,7 +45,8 @@ def register():
                         gender=gender, category=category, payment_date=payment_date,
                         payment_mode=payment_mode, registration_pin=registration_pin, 
                         expectations=expectations,
-                        massage=massage)
+                        massage=massage,
+                        teeth=teeth)
             db.session.add(user)
             
             # Send a welcome email
@@ -60,7 +62,7 @@ def register():
 
 def send_welcome_email(user):
     try:
-        subject = 'Welcome To Nasfat Sisters Camp 2024'
+        subject = 'Welcome To Nasfat Sisters Retreat 2024'
         html_template = render_template('user/welcome_email.html', user=user)
 
         msg = Message(subject, recipients=[user.email])

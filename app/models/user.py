@@ -17,12 +17,13 @@ class User(db.Model):
     registration_pin = db.Column(db.String(20), nullable=False)
     expectations = db.Column(db.Text, nullable=True)
     massage = db.Column(db.String(10), nullable=False)
+    teeth = db.Column(db.String(10), nullable=False)
     
     # Define a one-to-many relationship to the Pin model
     pins = db.relationship('Pin', back_populates='user')
 
     def __init__(self, first_name, last_name, number, email, zone, branch, gender, 
-                 category, payment_date, payment_mode, registration_pin, expectations, massage=None):
+                 category, payment_date, payment_mode, registration_pin, expectations, massage, teeth=None):
         self.first_name = first_name
         self.last_name = last_name
         self.number = number
@@ -36,3 +37,4 @@ class User(db.Model):
         self.registration_pin = registration_pin
         self.expectations = expectations
         self.massage = massage
+        self.teeth = teeth
