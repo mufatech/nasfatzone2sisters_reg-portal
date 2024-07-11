@@ -1,6 +1,6 @@
 
-import psycopg2
-from psycopg2 import OperationalError
+import pg8000
+from pg8000 import OperationalError
 
 # Database connection parameters
 DB_HOST = 'dpg-cq7pkqdds78s73dbd020-a.oregon-postgres.render.com'
@@ -10,7 +10,7 @@ DB_NAME = 'nasfat_render'
 
 # Establish connection
 try:
-    connection = psycopg2.connect(
+    connection = pg8000.connect(
         host=DB_HOST,
         user=DB_USER,
         password=DB_PASSWORD,
