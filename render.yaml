@@ -5,10 +5,24 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn run:app
+    build:
+      environment:
+        pythonVersion: 3.11.9
 
-build:
-  environment:
-    pythonVersion: 3.11.9
+
+
+
+# services:
+#   - type: web
+#     name: nasfat-sisters-app
+#     env: python
+#     plan: free
+#     buildCommand: pip install -r requirements.txt
+#     startCommand: gunicorn run:app
+
+# build:
+#   environment:
+#     pythonVersion: 3.11.9
 
 
 
