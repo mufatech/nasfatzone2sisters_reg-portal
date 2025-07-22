@@ -36,6 +36,7 @@
     <table class="table table-success table-striped mt-4">
         <thead>
             <tr>
+                <th>S/N</th> <!-- Serial Number Column -->
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>
@@ -54,6 +55,7 @@
         <tbody>
             {% for user in registered_users.items %}
             <tr>
+                <td>{{ loop.index + (registered_users.page - 1) * registered_users.per_page }}</td>
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.number }}</td>
