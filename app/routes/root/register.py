@@ -69,6 +69,6 @@ def send_welcome_email(user):
         msg = Message(subject, recipients=[user.email])
         msg.html = html_template
 
-        mail.send(msg)
-    except Exception as e:
-        app.logger.error(str(e))
+    #     mail.send(msg)
+    # except Exception as e:
+    #     app.logger.error(str(e))
