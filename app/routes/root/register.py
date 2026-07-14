@@ -61,12 +61,14 @@ def register():
     return render_template("root/register.html")
 
 
-def send_welcome_email(user):
-    try:
-        subject = 'Welcome To Nasfat Sisters Retreat 2024'
-        html_template = render_template('user/welcome_email.html', user=user)
+# def send_welcome_email(user):
+#     try:
+#         subject = 'Welcome To Nasfat Sisters Retreat 2024'
+#         html_template = render_template('user/welcome_email.html', user=user)
 
-        msg = Message(subject, recipients=[user.email])
-        msg.html = html_template
+#         msg = Message(subject, recipients=[user.email])
+#         msg.html = html_template
 
-        
+#         mail.send(msg)
+#     except Exception as e:
+#         app.logger.error(str(e))
