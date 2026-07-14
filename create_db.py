@@ -2,18 +2,13 @@
 import pg8000
 from pg8000 import OperationalError
 
-# Database connection parameters
-DB_HOST = 'ep-empty-wind-a8vrahe8-pooler.eastus2.azure.neon.tech'
-DB_USER = 'nasfat_sister_owner'
-DB_PASSWORD = 'npg_Q0yKJgSV2UZH'
-DB_NAME = 'nasfat_sister'
-
-# DB_HOST = 'dpg-cq7pkqdds78s73dbd020-a.oregon-postgres.render.com'
-# DB_USER = 'nasfat_render_user'
-# DB_PASSWORD = 's4UqmMqfhJVnNBlLn8s0KdUowOrYklkE'
-# DB_NAME = 'nasfat_render'
-
 # Establish connection
+DB_HOST = 'ep-shiny-dust-ajfzqvgr-pooler.c-3.us-east-2.aws.neon.tech'
+DB_USER = 'neondb_owner'
+DB_PASSWORD = 'npg_Pu9N6bqEDaSV'
+DB_NAME = 'nasfatsister_regportal'
+
+
 try:
     connection = pg8000.connect(
         host=DB_HOST,

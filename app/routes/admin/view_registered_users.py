@@ -33,7 +33,7 @@ def view_registered_users():
     page = request.args.get('page', default=1, type=int)
 
     # Set the number of results per page
-    per_page = 10  # You can adjust this to your desired number of results per page
+    per_page = 15  # You can adjust this to your desired number of results per page
 
     # Query registered users with pagination
     registered_users = User.query.paginate(page=page, per_page=per_page, error_out=False)
@@ -44,7 +44,7 @@ def view_registered_users():
 def download_registered_users():
     # Get filter criteria from the request
     branch_query = request.args.get('branch', '').strip()
-    gender_query = request.args.get('gender', '').strip()
+    status_query = request.args.get('status', '').strip()
     category_query = request.args.get('category', '').strip()
 
     # Base query
@@ -53,8 +53,8 @@ def download_registered_users():
     # Apply filters
     if branch_query:
         users_query = users_query.filter(User.branch.ilike(f'%{branch_query}%'))
-    if gender_query:
-        users_query = users_query.filter(User.gender.ilike(f'%{gender_query}%'))
+    if status_query:
+        users_query = users_query.filter(User.status.ilike(f'%{status_query}%'))
     if category_query:
         users_query = users_query.filter(User.category.ilike(f'%{category_query}%'))
 
@@ -64,7 +64,7 @@ def download_registered_users():
     # Create CSV data
     csv_data = StringIO()
     writer = csv.writer(csv_data)
-    writer.writerow(['Name', 'Email', 'Phone Number', 'Branch', 'Gender', 'Category', 'Payment Date', 'Payment Mode', 'Expectations', 'Registration Pin', 'Mani/Pedicure', 'Facial/Hennan'])
+    writer.writerow(['Name', 'Email', 'Phone Number', 'Branch', 'Status', 'Category', 'Payment Date', 'Payment Mode', 'Expectations', 'Registration Pin', 'Game'])
 
     for user in users:
         writer.writerow([
@@ -72,14 +72,14 @@ def download_registered_users():
             user.email,
             user.number,
             user.branch,
-            user.gender,
+            user.status,
             user.category,
             user.payment_date,
             user.payment_mode,
             user.expectations,
             user.registration_pin,
-            user.massage,
-            user.teeth
+            user.game
+            
         ])
 
     # Prepare the response

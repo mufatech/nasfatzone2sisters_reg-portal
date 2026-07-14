@@ -16,14 +16,16 @@ def register():
         email = request.form.get('email')
         zone = request.form.get('zone')
         branch = request.form.get('branch')
-        gender = request.form.get('gender')
+        status = request.form.get('status')
         category = request.form.get('category')
         payment_date = request.form.get('payment_date')
         payment_mode = request.form.get('payment_mode')
         registration_pin = request.form.get('registration_pin')
         expectations = request.form.get('expectations')
-        massage = request.form.get('massage')
-        teeth = request.form.get('teeth')
+        game = request.form.get('game')
+
+
+        # teeth = request.form.get('teeth')
 
         # Check if the registration_pin exists and is unused
         pin = Pin.query.filter_by(value=registration_pin, date_used=None, category=category).first()
@@ -42,11 +44,10 @@ def register():
             # Create a new user
             user = User(first_name=first_name, last_name=last_name, 
                         number=number, email=email, zone=zone, branch=branch, 
-                        gender=gender, category=category, payment_date=payment_date,
+                        status=status, category=category, payment_date=payment_date,
                         payment_mode=payment_mode, registration_pin=registration_pin, 
                         expectations=expectations,
-                        massage=massage,
-                        teeth=teeth)
+                        game=game)
             db.session.add(user)
             
             # Send a welcome email

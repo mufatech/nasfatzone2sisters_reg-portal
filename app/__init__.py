@@ -3,6 +3,7 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv  # Import the load_dotenv function
+from pathlib import Path
 from flask_login import LoginManager
 from flask_login import current_user
 from flask_mail import Mail
@@ -10,7 +11,10 @@ from flask_migrate import Migrate
 
 
 # Load environment variables from the .env file
-load_dotenv()
+#load_dotenv()
+#load_dotenv(dotenv_path=os.path.join(os.getcwd(), ".env"), override=True)
+BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / ".env", override=True)
 
 app = Flask(__name__)
 app.config.from_object(Config)

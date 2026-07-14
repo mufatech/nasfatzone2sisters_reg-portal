@@ -1,10 +1,10 @@
 import psycopg2
 
 # Establish connection
-DB_HOST = 'ep-empty-wind-a8vrahe8-pooler.eastus2.azure.neon.tech'
-DB_USER = 'nasfat_sister_owner'
-DB_PASSWORD = 'npg_Q0yKJgSV2UZH'
-DB_NAME = 'nasfat_sister'
+DB_HOST = 'ep-shiny-dust-ajfzqvgr-pooler.c-3.us-east-2.aws.neon.tech'
+DB_USER = 'neondb_owner'
+DB_PASSWORD = 'npg_Pu9N6bqEDaSV'
+DB_NAME = 'nasfatsister_regportal'
 
 # Establish connection
 try:
