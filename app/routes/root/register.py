@@ -51,7 +51,7 @@ def register():
             db.session.add(user)
             
             # Send a welcome email
-            send_welcome_email(user)
+            # send_welcome_email(user)
             
             db.session.commit()
             
